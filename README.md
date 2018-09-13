@@ -77,20 +77,20 @@ print(re.text)
 crawler have rules on website , to find same HTML Attr or Class .  
 
 我想爬這個網站的全部文章"標題"為目標應該怎麼辦呢?  
-if my target is all article "title"  on this website , how I gonna do ?
+if my target is all article "title"  on this website , how I gonna do ?  
 ![](https://raw.githubusercontent.com/kenson2998/beautifulsoup-tutorial/master/img/3.jpg)
-查找規則需要用到瀏覽器，這邊使用firefox來查看,按下"F12"可以使用查找元素功能找到想找的範圍 
-you need the browser to find  rules , I use the firefox browser to find it, press "F12" can search for elements . 
+查找規則需要用到瀏覽器，這邊使用firefox來查看,按下"F12"可以使用查找元素功能找到想找的範圍   
+you need the browser to find  rules , I use the firefox browser to find it, press "F12" can search for elements .  
 ![](https://raw.githubusercontent.com/kenson2998/beautifulsoup-tutorial/master/img/2.jpg)
 
 發現每個文章正被一個<div class="meta-image">的div區塊包住，而且長得一模一樣  
 
-這時候beautifulsoup可以登場了 我後面 as 命名為BS4 比較簡短
-now, beautifulsoup come in , and as name "BS4" 
+這時候beautifulsoup可以登場了 我後面 as 命名為BS4 比較簡短  
+now, beautifulsoup come in , and as name "BS4"   
 ```python
 from bs import Beautifulsoup as BS4
 ```
-把剛剛的re.text內文丟給BS4，並使用 .find_all(查找class名字為"meta-image")的class屬性。
+把剛剛的re.text內文丟給BS4，並使用 .find_all(查找class名字為"meta-image")的class屬性。  
 
 ```python
 soup = BS4(re.text)
@@ -106,8 +106,8 @@ soup = BS4(re.text)
 print(soup.find_all(class_='meta-image'))
 
 ```
-嘗試將過濾的內容印出來看看。
-try to print the fliter content.
+嘗試將過濾的內容印出來看看。  
+try to print the fliter content.  
 ```
 [<div class="meta-image">
 <a href="http://www.coffeearticle.com/archives/27902" title="成熟的人，看誰都順眼！">
@@ -131,8 +131,9 @@ try to print the fliter content.
 ```
 
 ![](https://raw.githubusercontent.com/kenson2998/beautifulsoup-tutorial/master/img/3.jpg)
-再將剛剛的資料丟到for迴圈 並將各別資料以標籤a的title內容印出。
-print "a" of elements's title Attr through forloop.
+
+再將剛剛的資料丟到for迴圈 並將各別資料以標籤a的title內容印出。  
+print "a" of elements's title Attr through forloop.  
 ```python
 import requests
 from bs4 import BeautifulSoup as BS4
